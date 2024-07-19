@@ -29,3 +29,17 @@ def formatDate(d):
     time = str(hour) + ":" + minute + ":00"
 
     return month, day, time
+
+
+
+
+# Checks input for date (Just looking at the first word in a given line for a name of a month)
+def isDateLine(line):
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+    l = line.split()
+
+    if len(l) > 0 and l[0] in months:
+         return True
+    else:
+         return False
