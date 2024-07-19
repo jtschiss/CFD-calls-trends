@@ -1,6 +1,9 @@
-import process
+import matplotlib.pyplot as plt
+import numpy as np
 
-d = "June 2 4:27 p.m."
+xpoints = np.array([1, 8])
+ypoints = np.array([3, 10])
 
-print(process.formatDate(d))
+plt.plot(xpoints, ypoints, 'o')
+plt.show()
 

@@ -1,3 +1,4 @@
+from datetime import datetime
 
 # Formats date to make useable with datetime library
 def formatDate(d):
@@ -23,12 +24,14 @@ def formatDate(d):
     hour, minute = time.split(':')
     hour = int(hour)
 
-    if not morning:
+    if not morning and hour < 12:
         hour += 12
+    elif morning and hour == 12:
+        hour = 0
 
-    time = str(hour) + ":" + minute + ":00"
+    # time = str(hour) + ":" + minute
 
-    return month, day, time
+    return month, day, hour, minute
 
 
 
@@ -43,3 +46,19 @@ def isDateLine(line):
          return True
     else:
          return False
+    
+
+# Splits dates into lists of months, days, and times to be used for graphing
+def splitDates(dates):
+    months = []
+    days = []
+    hours = []
+    minutes = []
+
+    for date in dates:
+        months.append(date[0])
+        days.append(date[1])
+        hours.append(date[2])
+        minutes.append(date[3])
+
+    return months, days, hours, minutes
