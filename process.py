@@ -16,8 +16,22 @@ def formatDate(d):
     morning = isMorning(D[3])
 
 
+    # clean day value to ensure only int
+    rm = []
+    for i in range(len(day)):
+        try:
+            int(day[i])
+        except ValueError:
+            print(day[i])
+            rm.append(day[i])
+
+    for i in rm:
+        day = day.replace(i,'')
+
     if len(day) == 1:
         day = "0" + day
+
+    day = int(day)
 
 
     # Format time to 24 hour time
@@ -30,6 +44,8 @@ def formatDate(d):
     elif morning and hour == 12:
         hour = 0
 
+
+    #add minutes to hours as decimal
     hour = hour + round((minute/60), 2)
 
     return month, day, hour, minute

@@ -22,6 +22,8 @@ out = pd.DataFrame({'months': months,
                    'hours': hours,
                    'minutes': minutes})
 
+
+
 xpoints = np.array(days)
 ypoints = np.array(hours)
 
