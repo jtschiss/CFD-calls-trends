@@ -22,5 +22,9 @@ out = pd.DataFrame({'months': months,
                    'hours': hours,
                    'minutes': minutes})
 
+xpoints = np.array(days)
+ypoints = np.array(hours)
 
-print(out)
+plt.plot(xpoints, ypoints, 'o')
+plt.show()
+#print(out)

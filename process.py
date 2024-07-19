@@ -23,13 +23,14 @@ def formatDate(d):
     # Format time to 24 hour time
     hour, minute = time.split(':')
     hour = int(hour)
+    minute = int(minute)
 
     if not morning and hour < 12:
         hour += 12
     elif morning and hour == 12:
         hour = 0
 
-    # time = str(hour) + ":" + minute
+    hour = hour + round((minute/60), 2)
 
     return month, day, hour, minute
 
